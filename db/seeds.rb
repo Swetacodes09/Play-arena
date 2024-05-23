@@ -10,7 +10,7 @@ default_image = File.open(Rails.root.join('app', 'assets', 'images', 'default.jp
     price: rand(10..100), 
     description: "Description for Sport #{i+1}"
   )
-  sport.image.attach(io: default_image, filename: 'default.jpg', content_type: 'image/jpg')
+  sport.image.attach(io: File.open("#{Rails.root}/app/assets/images/default.jpg"), filename: 'default.jpg')
   sport.save!
 end
 
