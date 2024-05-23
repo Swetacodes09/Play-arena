@@ -1,0 +1,15 @@
+
+<nav>
+  <% if logged_in? && admin? %>
+    <%= link_to "Profile", current_user %>
+    <%= link_to "users", current_user %>
+    <%= link_to "sports", sports_path %>
+    <%= link_to "Log Out", logout_path, method: :delete %>
+
+
+  <% elsif  logged_in? && !admin? %>
+    
+    <%= link_to "Log Out", logout_path, method: :delete %>
+
+  <% end %>
+</nav>

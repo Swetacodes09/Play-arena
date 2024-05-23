@@ -1,0 +1,22 @@
+<section class="card my-5 shadow size card-background">
+    <div class="card-body">
+      <h5>Sport</h5>
+      <h3 class = "size"><%= image_tag url_for(@sport.image), class: "card-img-top", alt: "Sport Image" if @sport.image.attached? %></h3>
+      <h3><%= @sport.name %> </h3>
+      <h3><%= @sport.location %> </h3>
+      <h3><%= @sport.pincode %> </h3>
+      <h3><%= @sport.price %> </h3>
+     
+      <h3><%= @sport.description %> </h3>
+      
+      <div class="flexrow4">
+        <%= link_to edit_sport_path(@sport), class: " text-primary link d-flex flex-column align-items-center" do %>
+          <%= icon('fa fa-pen ') %>
+        <% end %>
+        <%= link_to sport_delete_path(@sport), class: "text-primary link d-flex flex-column align-items-center", method: :delete, onclick: "return confirm('Are you sure?')" do %>
+        <%= icon('fa fa-trash') %>
+      <% end %>
+      
+      </div>
+    </div>
+  </section> 

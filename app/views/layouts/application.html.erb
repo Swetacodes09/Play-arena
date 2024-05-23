@@ -1,0 +1,34 @@
+<!-- app/views/layouts/application.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SportsFacilityBooking</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-YcxBx0nByxQ2iDjKXCfcYXpHFnwhOXZzyGpD5rjiL5jF1tOx7tI5vzRjKdX+jO/YPOIHDssbLfPpzG3qjKL/5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-hj16U1GpgHldJjLn6+uzU6gNYTmAFoB7Pr+L6EKmQ1V/4wEeQhWuIBmOkul+Pn4msJN8Yq3xtM1HIceF4t4KjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/4c98592650.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+  <%= render partial: "shared/navbar"  %>
+ 
+
+  <% flash.each do |key, message| %>
+    <div class="flash <%= key %>"><%= message %></div>
+  <% end %>
+
+  <%= yield %>
+</body>
+</html>

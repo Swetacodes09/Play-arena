@@ -1,0 +1,61 @@
+<h1>Sports</h1>
+
+<% if logged_in? && admin? %>
+
+<%= link_to "Add ", new_sport_path %>
+
+
+
+<% end %>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Index</title>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .sport-card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+    <%= search_form_for @q, url: sports_path, method: :get do |f| %>
+    <%= f.label :name_cont, 'Filter by name:' %>
+    <%= f.search_field :name_cont %>
+  
+    <%= f.label :pincode_cont, 'Filter by pincode:' %>
+    <%= f.search_field :pincode_cont %>
+  
+    <%= f.submit 'Filter' %>
+  <% end %>
+  
+  <div class="container">
+    <h2 class="text-center mb-4">Sports</h2>
+    <div class="row">
+      <% @sports.each do |sport| %>
+        <div class="col-md-4">
+          <div class="card sport-card" style="width: 18rem;">
+            
+            <%= image_tag url_for(sport.image), class: "card-img-top", alt: "Sport Image" if sport.image.attached? %>
+            <div class="card-body">
+              
+              <h5 class="card-title"><%= sport.name %></h5>
+              
+              <%= link_to "View Details", sport_path(sport), class: "btn btn-primary" %>
+              <%= link_to "Book", new_booking_path, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>
